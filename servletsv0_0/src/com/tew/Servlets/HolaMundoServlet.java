@@ -46,9 +46,9 @@ public class HolaMundoServlet extends HttpServlet {
 		out.println("Bienvenido a mi primera página Web!");
 		out.println("</BODY></HTML>");
 		
-		Vector listado = (Vector)request.getSession().getAttribute("listado");
+		Vector<String> listado = (Vector<String>)request.getSession().getAttribute("listado");
 		if (listado == null){
-			listado = new Vector();
+			listado = new Vector<String>();
 		}
 		
 		if ( nombre != null ){
