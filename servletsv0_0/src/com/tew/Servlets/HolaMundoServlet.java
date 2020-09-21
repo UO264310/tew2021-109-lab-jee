@@ -70,7 +70,7 @@ public class HolaMundoServlet extends HttpServlet {
 		getServletContext().setAttribute("contador",new
 		Integer(contador.intValue()+1));
 		
-		out.println("<br><br>" + contador +" visitas");
+		out.println("<br><br>" + contador +" visitas ");
 	}
 
 	/**
