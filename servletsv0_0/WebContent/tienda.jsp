@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 	<head>
  		<meta http-equiv="Content-Type" content="text/html; utf-8">
@@ -61,15 +62,12 @@
  		<br>
  			<H2>Carrito de la compra</h2>
 		<br>
-			<%
-				Set<String> productos = carrito.keySet();
-				Iterator<String> iter = productos.iterator();
-				while ( iter.hasNext() ) {
-					String elemento = (String)iter.next();
-			%>
-			<br>Del producto <%=elemento%>, <%=(Integer)carrito.get(elemento)%> unidades.
-			<%
-				}
-			%>
+			<ul>
+				<c:forEach var="entry" items="${carrito}">
+					<li>
+						<c:out value="Del producto ${entry.key}, ${entry.value} unidades"/>
+					</li>
+				</c:forEach>
+			</ul> 
 	</body>
 <html>
