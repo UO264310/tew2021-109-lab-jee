@@ -1,9 +1,11 @@
 package com.tew.Servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Map.Entry;
 import java.util.HashMap;
+import java.util.Set;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,15 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CarritoCompraServlet
+ * Servlet implementation class CarritoCompraVista
  */
-@WebServlet("/CarritoCompraServlet")
-public class CarritoCompraServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	/**
+@WebServlet(name = "CarritoCompraVista", urlPatterns = { "/CarritoCompraVista" } )
+public class CarritoCompraVista extends HttpServlet {
+	private static final long serialVersionUID = 2L;
+       
+    /**
      * @see HttpServlet#HttpServlet()
      */
-    public CarritoCompraServlet() {
+    public CarritoCompraVista() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,24 +32,16 @@ public class CarritoCompraServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: Carrito para la compra").append(request.getContextPath());
+		response.getWriter().append("Served at: Vista del carrito").append(request.getContextPath());
+		HashMap <String,Integer> carrito = (HashMap <String,Integer>) request.getSession().getAttribute("carrito");
 		
-		/*response.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println("<HTML>");
 		out.println("<HEAD><TITLE>Fruta</TITLE></HEAD>");
-		out.println("<BODY>");*/
+		out.println("<BODY>");
 		
-		//Comprobamos si existe el objeto "carrito" en sesión.
-		//Si no existe, lo creamos vacío. Será de tipo HashMap
-		@SuppressWarnings("unchecked")
-		HashMap <String,Integer> carrito = (HashMap <String,Integer>) request.getSession().getAttribute("carrito");
-		if(carrito==null) {
-			carrito = new HashMap<String, Integer>();
-		}
-		
-		/*
 		//Formulario
 		out.println("<tr>");
 		out.println("<td>");
@@ -72,33 +67,13 @@ public class CarritoCompraServlet extends HttpServlet {
 		out.println("</tr>");
 		out.println("</SELECT>");
 		out.println("</form>");
-		*/
 		
-
-		//Añadimos el producto recibido al carrito de la compra (en caso de que no sea nulo!)
-		String producto = request.getParameter("productos");
-
-		if(producto != null) {
-			Integer cant = carrito.get(producto);
-			if(cant==null) {
-				carrito.put(producto, new Integer(1));
-			}else {
-				carrito.put(producto, new Integer(cant+1));
-			}
-		}
-		//Añadimos el carrito a la sesión
-		request.getSession().setAttribute("carrito",carrito);
-		
-		/*out.println("<h2>Carrito</h2>");
+				
+		out.println("<h2>Carrito</h2>");
 		Set<Entry<String,Integer>> elemento = carrito.entrySet();
 		for(Entry<String, Integer> i: elemento) {
 			out.println("<br>Producto: " +i.getKey()+", "+i.getValue()+"unidades</br>");
-		}*/
-				
-		//RequestDispatcher dispatcher = getServletContext().getNamedDispatcher("CarritoCompraVista");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CarritoCompraVista");
-		dispatcher.forward(request, response);
-
+		}
 	}
 
 	/**
