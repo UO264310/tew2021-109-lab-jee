@@ -40,8 +40,8 @@ public class CarritoCompraServlet extends HttpServlet {
 		
 		//Comprobamos si existe el objeto "carrito" en sesión.
 		//Si no existe, lo creamos vacío. Será de tipo HashMap
-		@SuppressWarnings("unchecked")
-		HashMap <String,Integer> carrito = (HashMap <String,Integer>) request.getSession().getAttribute("carrito");
+		//@SuppressWarnings("unchecked")
+		HashMap <String,Integer> carrito = (HashMap <String,Integer>)request.getSession().getAttribute("carrito");
 		if(carrito==null) {
 			carrito = new HashMap<String, Integer>();
 		}
@@ -94,9 +94,11 @@ public class CarritoCompraServlet extends HttpServlet {
 		for(Entry<String, Integer> i: elemento) {
 			out.println("<br>Producto: " +i.getKey()+", "+i.getValue()+"unidades</br>");
 		}*/
-				
+		
 		//RequestDispatcher dispatcher = getServletContext().getNamedDispatcher("CarritoCompraVista");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("CarritoCompraVista");
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("CarritoCompraVista");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Fruta.jsp");
+		
 		dispatcher.forward(request, response);
 
 	}

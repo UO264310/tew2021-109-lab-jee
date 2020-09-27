@@ -74,6 +74,9 @@ public class CarritoCompraVista extends HttpServlet {
 		for(Entry<String, Integer> i: elemento) {
 			out.println("<br>Producto: " +i.getKey()+", "+i.getValue()+"unidades</br>");
 		}
+		
+		out.println("</BODY>");
+		out.println("</HTML>");
 	}
 
 	/**
