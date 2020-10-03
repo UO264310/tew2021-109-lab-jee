@@ -27,7 +27,7 @@
 	 	</h:commandLink>
 	</f:facet>
 </p:menubar>
-<h:dataTable var="alumno" 
+<valumno var="alumno" 
              value="#{controller.alumnos}"
              border="1">
   <h:column><f:facet name="header">#{msgs.tablaNombre}</f:facet>#{alumno.nombre}</h:column>
@@ -35,16 +35,16 @@
   <h:column><f:facet name="header">#{msgs.tablaIdUser}</f:facet>#{alumno.iduser}</h:column>
   <h:column><f:facet name="header">#{msgs.tablaCorreo}</f:facet>#{alumno.email}</h:column>
   <h:column><f:facet name="header">#{msgs.tablaBaja}</f:facet>
-     <h:commandLink action="#{controller.baja}" type="submit" value="#{msgs.enlaceBaja}" immediate="true">
-         <f:setPropertyActionListener target="#{controller.alumno}" value="#{alumno}"/>
+     <h:commandLink action="#{controller.baja(valumno)}" type="submit" value="#{msgs.enlaceBaja}" immediate="true">
+         <f:actionListener="#{alumno.setAlumno(valumno)} target="#{controller.alumno}" value="#{alumno}"/>
      </h:commandLink>
   </h:column>
   <h:column><f:facet name="header">#{msgs.tablaEditar}</f:facet>
      <h:commandLink action="editar" type="submit" value="#{msgs.enlaceEditar}" immediate="true">
-         <f:setPropertyActionListener target="#{controller.alumno}" value="#{alumno}"/>
+         <f:actionListener=#"{alumno.setAlumno(valumno)} target="#{controller.alumno}" value="#{alumno}"/>
      </h:commandLink>
   </h:column>
-</h:dataTable>
+</valumno>
 <h:commandLink action="enlaceCasa" type="submit" value="#{msgs.enlaceCasa}" immediate="true">
 </h:commandLink>
 </h:form>
