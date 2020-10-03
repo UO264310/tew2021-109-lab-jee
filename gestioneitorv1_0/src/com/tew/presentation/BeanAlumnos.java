@@ -6,7 +6,7 @@ import com.tew.business.AlumnosService;
 import com.tew.infrastructure.Factories;
 import com.tew.model.Alumno;
 @ManagedBean
-@SessionScoped
+@ApplicationScoped 
 public class BeanAlumnos implements Serializable{
 	private static final long serialVersionUID = 55555L;
 	// Se añade este atributo de entidad para recibir el alumno concreto seleccionado
@@ -15,6 +15,7 @@ public class BeanAlumnos implements Serializable{
 	// AltaForm.xhtml se puedan dejar los valores en un objeto existente.
 	private Alumno alumno = new Alumno();
 	private Alumno[] alumnos = null;
+	private String msg = null;
 	
 	public BeanAlumnos(){
 		iniciaAlumno(null);
@@ -42,6 +43,14 @@ public class BeanAlumnos implements Serializable{
 	public void setAlumnos(Alumno[] alumnos) {
 		this.alumnos = alumnos;
 	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 	
 	public String listado() {
 		AlumnosService service;
@@ -54,6 +63,7 @@ public class BeanAlumnos implements Serializable{
 			return "exito";
 			} catch (Exception e) {
 				e.printStackTrace();
+				setMsg("Error al mostrar la lista "+e.getMessage());
 				return "error";
 			}
 		 }
@@ -69,6 +79,7 @@ public class BeanAlumnos implements Serializable{
 		return "exito";
 		} catch (Exception e) {
 			e.printStackTrace();
+			setMsg("Error al editar un alumno "+e.getMessage());
 			return "error";
 		}
 	}
@@ -91,6 +102,7 @@ public class BeanAlumnos implements Serializable{
 		return "exito";
 		} catch (Exception e) {
 			e.printStackTrace();
+			setMsg("Error al guardar un alumno en la base de datos "+e.getMessage());
 			return "error";
 		}
 	}
@@ -101,14 +113,13 @@ public class BeanAlumnos implements Serializable{
 			// a través de la factoría
 			service = Factories.services.createAlumnosService();
 			//Salvamos o actualizamos el alumno segun sea una operacion de alta o de edición
-			if (alumno.getId() != null) {
-				service.deleteAlumno(alumno.getId());
-			}
+			service.deleteAlumno(alumno.getId());
 			//Actualizamos el javabean de alumnos inyectado en la tabla
 			alumnos = (Alumno [])service.getAlumnos().toArray(new Alumno[0]);
 			return "exito";
 			} catch (Exception e) {
 				e.printStackTrace();
+				setMsg("Error al dar de baja a un alumno "+e.getMessage());
 				return "error";
 			}
 	}
