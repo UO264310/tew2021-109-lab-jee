@@ -36,10 +36,10 @@ public class HolaMundoServlet extends HttpServlet {
 		String nombre = (String) request.getParameter("NombreUsuario");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		/*PrintWriter out = response.getWriter();
+		PrintWriter out = response.getWriter();
 		out.println("<HTML>");
 		out.println("<HEAD><TITLE>Hola Mundo!</TITLE></HEAD>");
-		out.println("<BODY>");*/
+		out.println("<BODY>");
 		
 		@SuppressWarnings("unchecked")
 		Vector<String> listado =
