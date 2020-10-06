@@ -27,6 +27,7 @@ public class BeanAlumnos implements Serializable{
 	public BeanAlumno getAlumno() { return alumno; }
 	public void setAlumno(BeanAlumno alumno) {this.alumno = alumno;}
 
+	private Alumno[] alumnos = null;
 	
 	public Alumno[] getAlumnos() {
 		return alumnos;
@@ -34,11 +35,10 @@ public class BeanAlumnos implements Serializable{
 	public void setAlumnos(Alumno[] alumnos) {
 		this.alumnos = alumnos;
 	}
-	private Alumno[] alumnos = null;
   
-	public BeanAlumnos(){
-		//iniciaAlumno(null);
-	}
+	/*public BeanAlumnos(){
+		iniciaAlumno(null);
+	}*/
   
 	public void iniciaAlumno(ActionEvent event) {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
@@ -127,15 +127,7 @@ public class BeanAlumnos implements Serializable{
 	//ya estaba construido y en @PostConstruct SI.
 	@PostConstruct
 	public void init() {
-		System.out.println("BeanAlumnos - PostConstruct");
-		//Buscamos el alumno en la sesión. Esto es un patrón factoría claramente.
-		alumno = (BeanAlumno)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new String("alumno"));
-		//si no existe lo creamos e inicializamos
-		if (alumno == null) {
-			System.out.println("BeanAlumnos - No existia");
-			alumno = new BeanAlumno();
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put( "alumno",alumno);
-		}
+		alumno=Factories.construct.CreateBeanAlumno();
 	}
 	
 	@PreDestroy
