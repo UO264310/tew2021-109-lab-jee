@@ -26,6 +26,10 @@ public class BeanAlumnos implements Serializable{
 	private BeanAlumno alumno;
 	public BeanAlumno getAlumno() { return alumno; }
 	public void setAlumno(BeanAlumno alumno) {this.alumno = alumno;}
+	
+	private BGError error;
+	public BGError getError() { return error;}
+	public void setError(BGError error) { this.error=error; }
 
 	private Alumno[] alumnos = null;
 	
@@ -64,6 +68,7 @@ public class BeanAlumnos implements Serializable{
 	      return "exito";
 	    } catch (Exception e) {
 	      e.printStackTrace();  
+	      error.setError(error.getR().getPathInfo(), "listado()", this.getClass().toString(), "Error al procesar el listado");
 	      return "error";
 	    }
 	  }
@@ -77,7 +82,8 @@ public class BeanAlumnos implements Serializable{
 	      alumno = (BeanAlumno) service.findById(alumno.getId());
 	      return "exito";
 	    } catch (Exception e) {
-	       e.printStackTrace();  
+	       e.printStackTrace();
+		   error.setError(error.getR().getPathInfo(), "edit()", this.getClass().toString(), "Error al editar un alumno");
 	       return "error";
 	    }
 	  }
@@ -99,6 +105,7 @@ public class BeanAlumnos implements Serializable{
 	      return "exito";
 	    } catch (Exception e) {
 	      e.printStackTrace();
+	      error.setError(error.getR().getPathInfo(), "salva()", this.getClass().toString(), "Error al salvar un alumno");
 	      return "error";
 	    }
 	  }
@@ -117,6 +124,7 @@ public class BeanAlumnos implements Serializable{
 		      return "exito";
 		    } catch (Exception e) {
 		      e.printStackTrace();
+		      error.setError(error.getR().getPathInfo(), "listado()", this.getClass().toString(), "Error al dar de baja a un alumno");
 		      return "error";
 		    }
 		  }
@@ -127,6 +135,7 @@ public class BeanAlumnos implements Serializable{
 	//ya estaba construido y en @PostConstruct SI.
 	@PostConstruct
 	public void init() {
+		error=Factories.fail.inicializar();
 		alumno=Factories.construct.CreateBeanAlumno();
 	}
 	

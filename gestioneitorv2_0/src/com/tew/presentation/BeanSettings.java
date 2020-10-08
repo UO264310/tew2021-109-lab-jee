@@ -22,6 +22,11 @@ public class BeanSettings implements Serializable{
 	private BeanAlumno alumno;
 	public BeanAlumno getAlumno() { return alumno; }
 	public void setAlumno(BeanAlumno alumno) {this.alumno = alumno;}
+	
+	@ManagedProperty(value="#{error}")
+	private BGError error;
+	public BGError getError() { return error;}
+	public void setError(BGError error) { this.error=error; }
 
  
 	public Locale getLocale() { /*Habria que cambiar algo de código para coger locale
@@ -33,12 +38,12 @@ public class BeanSettings implements Serializable{
 	public void setSpanish(ActionEvent event) {
 		locale = SPANISH;
 		try {
-			FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
 			if (alumno != null)
 				if (alumno.getId()== null) //valores por defecto del alumno, si no NO inicializar
 					alumno.iniciaAlumno(null);
 		} catch (Exception ex){
 			ex.printStackTrace();
+			error.setError(error.getR().getPathInfo(), "setSpanish", this.getClass().toString(), "Error al traducir al Español");
 		}
 	}
 
@@ -51,6 +56,7 @@ public class BeanSettings implements Serializable{
 					alumno.iniciaAlumno(null);
 		} catch (Exception ex){
 			ex.printStackTrace();
+			error.setError(error.getR().getPathInfo(), "setEnglish", this.getClass().toString(), "Error al traducir al Ingles");
 		}
 	}
 	
@@ -61,6 +67,7 @@ public class BeanSettings implements Serializable{
 	//el MBean ya estaba construido y en @PostConstruct SI.
 	@PostConstruct
 	public void init() {
+		error=Factories.fail.inicializar();
 		alumno=Factories.construct.CreateBeanAlumno();
 	}
 	
