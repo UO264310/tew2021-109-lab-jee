@@ -28,10 +28,9 @@
 	<h1>"#{controller.error.errorConcreto}"</h1>
 	<p>Se ha producido un error en la vista: #{controller.error.vista}</p>
 	<p>En el metodo #{controller.error.metodo} de la clase #{controller.error.clase}</p>
-	
-	<h:commandLink value="Volver a pagina principal" action="index.xhtml"/>
 	</h:form> 
 	</ui:define>
 	<ui:define name="pie">
+		<h:commandLink value="Volver a pagina principal" action="index.xhtml"/>
 	</ui:define>
 </ui:composition>
