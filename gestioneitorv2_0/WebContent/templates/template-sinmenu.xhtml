@@ -25,22 +25,18 @@
 					</th>
 				</tr>
 			</table>
-				<p: label="#{msgs.tituloOpciones}" icon="ui-icon-document">
-					<p: value="#{msgs.enlaceListado}"
+					<h:commandLink value="#{msgs.enlaceListado}"
 						action="#{controller.listado}" />
 					<p:separator />
-					<p: value="#{msgs.enlaceAlta}" action="alta"
+					<h:commandLink value="#{msgs.enlaceAlta}" action="alta"
 						actionListener="#{alumno.iniciaAlumno}" />
-				</p:>
-				<f:facet name="options">
+			
 					<h:commandLink value="#{msgs.enlaceIdiomaES}"
 						actionListener="#{settings.setSpanish}">
 					</h:commandLink>
 					<h:commandLink value="#{msgs.enlaceIdiomaEN}"
 						actionListener="#{settings.setEnglish}">
 					</h:commandLink>
-				</f:facet>
-
 		</h:form>
 
 		<ui:insert name="cuerpo">#{msgs.tituloDefectoCuerpo}</ui:insert>
