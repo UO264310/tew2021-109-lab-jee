@@ -23,7 +23,7 @@
 				<p:column>
 					<f:facet name="header">#{msgs.tablaBaja}</f:facet>
 					<p:commandLink action="#{controller.baja(valumno)}" type="submit"
-						value="#{msgs.tablaBaja}" immediate="true" update="tablaListado">
+						value="#{msgs.tablaBaja}" immediate="true" update="tablaListado,Etiqueta_error">
 					</p:commandLink>
 				</p:column>
 				<p:column>
@@ -33,6 +33,7 @@
 					</p:commandLink>
 				</p:column>
 			</p:dataTable>
+			<h:outputlabel id="Etiqueta_error" value="#{controller.error.mensaje}" color="red">
 		</h:form>
 	</ui:define>
 	<ui:define name="pie">

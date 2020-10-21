@@ -1,10 +1,14 @@
 package com.tew.infrastructure;
 
 import impl.tew.business.SimpleServicesFactory;
+import impl.tew.construct.SimpleConstructFactory;
+import impl.tew.error.SimpleErrorFactory;
 import impl.tew.persistence.SimplePersistenceFactory;
 
 import com.tew.persistence.PersistenceFactory;
 import com.tew.business.ServicesFactory;
+import com.tew.construct.ConstructFactory;
+import com.tew.error.ErrorFactory;
 
 /**
  * Esta clase es la que realemente relaciona las interfaces de las capas 
@@ -28,5 +32,7 @@ public class Factories {
 
 	public static ServicesFactory services = new SimpleServicesFactory();
 	public static PersistenceFactory persistence = new SimplePersistenceFactory();
-
+	public static ConstructFactory construct = new SimpleConstructFactory();
+	public static ErrorFactory fail = new SimpleErrorFactory();
+	
 }

@@ -48,8 +48,9 @@
 			<p:message for="correo" />
 		</h:panelGroup>
 		<p:commandButton value="#{msgs.botonSalvar}"
-			action="#{controller.salva}" update="Grid"
+			action="#{controller.salva}" update="Grid,Etiqueta_error"
 			process="@form">
 		</p:commandButton>
+		<h:outputText id="Etiqueta_error" value="#{controller.error.mensaje}" color="red">
 	</h:panelGrid>
 </ui:composition>

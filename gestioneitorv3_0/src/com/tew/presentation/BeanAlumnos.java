@@ -29,6 +29,9 @@ public class BeanAlumnos implements Serializable{
           public BeanAlumno getAlumno() { return alumno; }
           public void setAlumno(BeanAlumno alumno) {this.alumno = alumno;}
           
+          private BGError error;
+      	  public BGError getError() { return error;}
+      	  public void setError(BGError error) { this.error=error; }
           
          /* public BeanAlumnos()
           {
@@ -66,6 +69,8 @@ public class BeanAlumnos implements Serializable{
 					
 				  } catch (Exception e) {
 					e.printStackTrace();  
+					error.setError(error.getR().getPathInfo(), "listado()", this.getClass().toString(), "Error al procesar el listado");
+					error.AÒadirMensaje();
 					return "error";
 				  }
 				  
@@ -84,6 +89,8 @@ public class BeanAlumnos implements Serializable{
 					
 				  } catch (Exception e) {
 					e.printStackTrace();  
+					error.setError(error.getR().getPathInfo(), "listado()", this.getClass().toString(), "Error al dar de baja a un alumno");
+					error.AÒadirMensaje();
 					return "error";
 				  }
 				  
@@ -99,7 +106,9 @@ public class BeanAlumnos implements Serializable{
 					return "exito";
 					
 				  } catch (Exception e) {
-					e.printStackTrace();  
+					e.printStackTrace(); 
+					error.setError(error.getR().getPathInfo(), "edit()", this.getClass().toString(), "Error al editar un alumno");
+					error.AÒadirMensaje();
 					return "error";
 				  }
 				  
@@ -124,7 +133,9 @@ public class BeanAlumnos implements Serializable{
 					
 				  } catch (Exception e) {
 					  e.printStackTrace();
-					return "error";
+					  error.setError(error.getR().getPathInfo(), "salva()", this.getClass().toString(), "Error al salvar un alumno");
+					  error.AÒadirMensaje();
+					  return "error";
 				  }
 				  
 		 	  }
@@ -134,15 +145,8 @@ public class BeanAlumnos implements Serializable{
 	     //ya estaba construido y en @PostConstruct SI.
 	     @PostConstruct
 	     public void init() {    	  
-	       System.out.println("BeanAlumnos - PostConstruct"); 
-	       //Buscamos el alumno en la sesi√≥n. Esto es un patr√≥n factor√≠a claramente.
-	       alumno = (BeanAlumno) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new String("alumno"));
-	       //si no existe lo creamos e inicializamos
-	       if (alumno == null) { 
-	         System.out.println("BeanAlumnos - No existia");
-	         alumno = new BeanAlumno();
-	         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put( "alumno", alumno);
-	       }
+	        error=Factories.fail.inicializar();
+	 		alumno=Factories.construct.CreateBeanAlumno();
 	     }
 	     @PreDestroy
 	     public void end()  {
