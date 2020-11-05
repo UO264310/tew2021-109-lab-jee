@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 @NoneScoped
-public class BGError {
+public class BeanError {
 	private String vista;
 	private String metodo;
 	private String clase;

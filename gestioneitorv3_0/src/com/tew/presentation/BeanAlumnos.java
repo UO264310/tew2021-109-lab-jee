@@ -29,9 +29,9 @@ public class BeanAlumnos implements Serializable{
           public BeanAlumno getAlumno() { return alumno; }
           public void setAlumno(BeanAlumno alumno) {this.alumno = alumno;}
           
-          private BGError error;
-      	  public BGError getError() { return error;}
-      	  public void setError(BGError error) { this.error=error; }
+          private BeanError error;
+      	  public BeanError getError() { return error;}
+      	  public void setError(BeanError error) { this.error=error; }
           
          /* public BeanAlumnos()
           {

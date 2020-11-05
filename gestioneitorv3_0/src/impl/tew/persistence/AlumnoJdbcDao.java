@@ -122,7 +122,7 @@ public class AlumnoJdbcDao implements AlumnoDao {
 			con = DriverManager.getConnection(SQL_URL, "sa", "");
 			ps = con.prepareStatement("select * from alumno where id = ?");
 			ps.setLong(1, id);
-			
+						
 			rs = ps.executeQuery();
 			if (rs.next()) {
 				alumno = new Alumno();

@@ -56,6 +56,7 @@ public class BeanLogin implements Serializable{
 		 private void putUserInSession(User user) {
 			 Map<String, Object> session =
 					 FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+			 
 			 session.put("LOGGEDIN_USER", user);
 		 }
 

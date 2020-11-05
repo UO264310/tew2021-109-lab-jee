@@ -2,7 +2,7 @@
 <%@ page pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix='c'%>
 
-<jsp:useBean id="alumnos" class="com.tew.presentation.GestioneitorBean" scope="page"/>
+<jsp:useBean id="alumnos" class="com.tew.presentacion.GestioneitorBean" scope="page"/>
 
 <html>
 <head>

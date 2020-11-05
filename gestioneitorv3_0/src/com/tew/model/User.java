@@ -20,10 +20,8 @@ public class User implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public User(String login, String name) {
 		this.login=login;
 		this.name=name;
 	}
-
 }
