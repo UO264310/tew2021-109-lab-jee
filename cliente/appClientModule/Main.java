@@ -29,10 +29,12 @@ public class Main {
 		System.out.println(ciudad);*/
 		
 		Client client = ClientBuilder.newClient();
-		WebTarget target = client.target("http://localhost:8080/gestioneitorv4_0/busgijontr.json");
+		//WebTarget target = client.target("http://localhost:8080/gestioneitorv4_0/busgijontr.json");
+		WebTarget target = client.target("https://datos.gijon.es/doc/transporte/busgijontr.json");
 		
 		String result = target.request().get().readEntity(String.class);
 		System.out.println(result);
+		
 	}
 
 	/* (non-Java-doc)
