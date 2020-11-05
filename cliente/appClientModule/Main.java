@@ -6,14 +6,14 @@ import org.json.simple.*;
 
 public class Main {
 	public static void main(String[] args) {
-		Client client = ClientBuilder.newClient();
+		/*Client client = ClientBuilder.newClient();
 		WebTarget target = client.target("http://localhost:8080/gestioneitorv4_0/pisos.json");
 		
 		String result = target.request().get().readEntity(String.class);
 		
-		/*El código para acceder al servicio y luego tratar los datos.
-		Los objetos de las clases JSONObjects (mapas) y JSONArray (arrays)
-		*/
+		//El código para acceder al servicio y luego tratar los datos.
+		//Los objetos de las clases JSONObjects (mapas) y JSONArray (arrays)
+		
 		//Imprimimos todo el flujo JSON recibido en formato cadena.
 		System.out.println("-----------TODOS----------------");
 		System.out.println(result);
@@ -26,7 +26,13 @@ public class Main {
 		System.out.println("----------- CIUDAD DE UN PISO ----------------");
 		JSONObject unPiso = (JSONObject) JSONValue.parse(pisos.get(2).toString());
 		String ciudad = (String)unPiso.get("Ciudad");
-		System.out.println(ciudad);
+		System.out.println(ciudad);*/
+		
+		Client client = ClientBuilder.newClient();
+		WebTarget target = client.target("http://localhost:8080/gestioneitorv4_0/busgijontr.json");
+		
+		String result = target.request().get().readEntity(String.class);
+		System.out.println(result);
 	}
 
 	/* (non-Java-doc)
