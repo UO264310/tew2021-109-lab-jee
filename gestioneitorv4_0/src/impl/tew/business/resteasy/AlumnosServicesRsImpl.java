@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.tew.business.exception.EntityAlreadyExistsException;
 import com.tew.business.exception.EntityNotFoundException;
-import com.tew.business.resteasy.AlumnosServiceRs;
+import com.tew.business.resteasy.AlumnosServicesRs;
 import com.tew.model.Alumno;
 
 import impl.tew.business.classes.AlumnosAlta;
@@ -13,7 +13,7 @@ import impl.tew.business.classes.AlumnosBuscar;
 import impl.tew.business.classes.AlumnosListado;
 import impl.tew.business.classes.AlumnosUpdate;
 
-public class AlumnosServicesRsImpl implements AlumnosServiceRs {
+public class AlumnosServicesRsImpl implements AlumnosServicesRs {
 
 	@Override
 	public List<Alumno> getAlumnos() throws Exception {

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejemplo sencillo de web service con RESTEasy</title>
+ 		<script type="text/javascript" src="/gestioneitorv4_0/rest-jsapi"></script>
+ 	</head>
+	<body>
+		<form action="">
+			Nombre: <input type="text" id="nombre" size=10/> <br/>
+			Apellidos: <input type="text" id="apellidos" size=10/> <br/>
+			Identificador: <input type="text" id="id" size=10/> <br/>
+			Correo: <input type="text" id="correo" size=10/> <br/>
+			Alta: <input type="submit" id="boton">
+		</form>
+		<script>
+			document.getElementById("boton").addEventListener("click", function(event){
+		 	event.preventDefault();
+		 	 // Esto es un ejemplo de acción para que se ven que se puede ejecutar codigo después del preventDetault().
+		 	 document.getElementById("demo").innerHTML += "FECHA/HORA-> "+ Date()+"<br/>";
+		 	 
+		 	var Nombre = document.getElementById("nombre");
+		 	document.getElementById("demo").innerHTML += "<br>Nombre-> "+Nombre.value+"<br/>";
+		 	var Apellidos = document.getElementById("apellidos");
+		 	document.getElementById("demo").innerHTML += "<br>Apellidos-> "+Apellidos.value+"<br/>";
+		 	var Id = document.getElementById("id");
+		 	document.getElementById("demo").innerHTML += "<br>Id del usuario-> "+Id.value+"<br/>";
+			var Correo = document.getElementById("correo");
+			document.getElementById("demo").innerHTML += "<br>Correo-> "+Correo.value+"<br/>";
+			
+			var alumno = {nombre: Nombre.value, apellidos: Apellidos.value, iduser: Id.value, email: Correo.value};
+			AlumnosServicesRs.saveAlumno({$entity: alumno, $contentType: "application/json"});
+		});
+		</script>
+		<p id="demo"></p>
+	</body>
+</html>
