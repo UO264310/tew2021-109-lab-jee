@@ -6,10 +6,10 @@ Autor     : Enrique
 Universidad de Oviedo
 ***************************************************
 -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="ISO-8859-1">
 <title>Tecnologías Web</title>
 </head>
   <body>
@@ -18,14 +18,15 @@ Universidad de Oviedo
 	* CABECERA DE LA PAGINA ***************************
 	***************************************************
 	-->
-	
+	<header>
 		<h1>Tecnologías Web</h1>
+	</header>
 	<!-- 
 	***************************************************
 	* MENU ********************************************
 	***************************************************
 	-->
-	<div>
+	<nav>
 		<ul>
 			<li>Alumnos
 				<ul>
@@ -56,7 +57,7 @@ Universidad de Oviedo
 				</ul>
 			</li>
 		</ul>
-	</div>
+	</nav>
 
 	<!-- 
 	***************************************************
@@ -64,15 +65,15 @@ Universidad de Oviedo
 	***************************************************
 
 	-->
-	<div>
-		<div>
+  	<article>
+		<header>
 			<h1>Login alumno</h1>
 			<pre>
 			Septiembre 14th, 2014
 		</pre>
 
-		</div>
-		<div>
+		</header>
+		<section>
 			<p>Datos para un nuevo alumno:</p>
 			<form id="login" action="#" enctype="application/x-www-form-urlencoded">
 			<p>
@@ -88,23 +89,26 @@ Universidad de Oviedo
 				<input type="reset" name="reset" id="reset" value="Reiniciar"/>
 			</p>
 		</form>
-		</div>
-	</div>
-<!-- 
+		</section>
+	</article>
+	
+	<!-- 
 	***************************************************
 	* ELEMENTO LATERAL INFORMATIVO ********************
 	***************************************************
 	-->
-	<div>
-		
-		<h2>Proyecto GestioneitorCli v0.0</h2>
-		
-		<p>En este proyecto de partida para la asignatura se incluyen:
-		
-		<ol>
-			<li>Secciones básicas para estructurar el código de GestioneitorCli en HTML4. </li>
-		</ol>
-	</div>
+	<aside>
+		<header>
+			<h2>Proyecto GestioneitorCli v0.0</h2>
+		</header>
+		<section>
+			<p>En este proyecto de partida para la asignatura se incluyen:
+			
+			<ol>
+				<li>Secciones básicas para estructurar el código de GestioneitorCli en HTML4. </li>
+			</ol>
+		</section>
+	</aside>
 
 
 	<!-- 
@@ -112,11 +116,11 @@ Universidad de Oviedo
 	* ELEMENTO PIE DE NAVEGACION** ********************
 	***************************************************
 	-->
-	<div>
+	<nav>
 			<ul>
-				<li><a href="index.html">Index</a></li>
+				<li><a href="login.html">Sesion</a></li>
 				<li><a href="altaAlumno.html">Alumnos</a></li>
 			</ul>
-	</div>	 
+	</nav>	 
 </body>
 </html>
