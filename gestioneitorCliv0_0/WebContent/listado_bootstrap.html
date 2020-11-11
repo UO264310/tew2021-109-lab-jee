@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Para la presentación adecuada en los dispositivos donde se visualice-->
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--
+	width=device-width establece el ancho de la página para que se ajuste al dispositivo.
+	initial-scale=1 establece el nivel de zoom inicial -->
+	
+	
+	<!--Uso de hojas de estilo de bootstrap local-->
+	
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	
+	<!-- jQuery library -->
+
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	
+	<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+  <title>Ejemplo sencillo de web service con RESTEasy</title>
+  <script type="text/javascript" src="http://localhost:8080/gestioneitorv5_0/rest-jsapi"> 
+  </script>
+ 
+  <script type="text/javascript">
+   function solicitarDatosAlumnos() {
+     var alumnos=AlumnosServicesRs.getAlumnos();
+      // Obtener el elemento HTML donde ir dejando el resultado
+      // del servicio
+     div = document.getElementById("contenido")
+     div.innerHTML = "";
+     for (i in alumnos) {
+       div.innerHTML += alumnos[i]["nombre"] + alumnos[i]["apellidos"] + alumnos[i]["email"] + alumnos[i]["iduser"]+"</br>";
+      }
+    }
+  </script>
+</head>
+
+<body onload="solicitarDatosAlumnos()">
+ <div class="container">
+	<div class="page-header" >Listado de alumnos</div>
+	<br/>
+	<div id="contenido" style="height:90%;top:30px">
+	  Resultado del servicio  REST...
+	</div>
+ </div>
+</body>
+</html>
