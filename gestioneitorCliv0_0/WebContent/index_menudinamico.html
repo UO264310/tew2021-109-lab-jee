@@ -49,37 +49,41 @@ Universidad de Oviedo
 	* MENU ********************************************
 	***************************************************
 	-->
-	<nav>
-		<ul>
-			<li>Alumnos
-				<ul>
-					<li><a href="altaAlumno_bootstrap.html" target="formulario">Altas de alumnos</a></li>
-					<li><a href="#bajaAlumno">Baja</a></li>
-					<li><a href="#edicionAlumno">Edicion</a></li>
-					<li><a href="listado_bootstrap.html" target="formulario">Altas de alumnos</a></li>
-					<li><a href="#matricularAsignaturas" >Matricular
-							Asignaturas</a></li>
-					<li><a href="#desmatricularAsignaturas" >Quitar
-							Asignaturas</a></li>
-				</ul>
-			</li>
-			<li>Asignaturas
-				<ul>
-					<li><a href="#altaAsignatura" >Alta</a>
-					</li>
-					<li><a href="#bajaAsignatura" >Baja</a></li>
-					<li><a href="#edicionAsignatura" >Edicion</a></li>
-					<li><a href="#listadoAsignatura" >Listado</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Calificaciones</a></li>
-			<li>Sesión
-				<ul>
-					<li><a href="login_bootstrap.html" target="formulario">Login</a></li>
-					<li><a href="login_bootstrap.html" target="formulario">Logout</a></li>
-				</ul>
-			</li>
-		</ul>
+	<nav class="navbar navbar-default" role= "navigation">
+ 		<div class="navbar-header">
+ 			<a class="navbar-brand" href="#">Gestioneitorv.6.0</a>
+ 		</div>
+ 		<div>
+ 			<ul class="nav navbar-nav">
+ 				<li class="dropdown">
+ 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Alumnos<span class="caret"></span></a>
+		 			<ul class="dropdown-menu">
+						<li><a href="altaAlumno_bootstrap.html" target="formulario">Alta</a></li>
+					 	<li><a href="#bajaAlumno">Baja</a></li>
+					 	<li><a href="#edicionAlumno">Edicion</a></li>
+					 	<li><a href="listado_bootstrap.html" target="formulario">Listado</a></li>
+					 	<li><a href="#matricularAsignaturas">Matricular Asignaturas</a></li>
+					 	<li><a href="#desmatricularAsignaturas">Quitar Asignaturas</a></li>
+					</ul>
+ 				</li>
+ 				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" 
+ 					href="#">Asignaturas<span class="caret"></span></a>
+ 					<ul class="dropdown-menu">
+ 						<li><a href="#altaAsignatura">Alta</a></li>
+						<li><a href="#bajaAsignatura">Baja</a></li>
+						<li><a href="#edicionAsignatura">Edicion</a></li>
+						<li><a href="#listadoAsignatura">Listado</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Calificaciones</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="login_bootstrap.html" target="formulario">
+ 					<span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+ 				<li><a href="login_bootstrap.html" target="formulario">
+ 					<span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+ 			</ul>
+ 		</div>
 	</nav>
 	
 	<div class="row">
