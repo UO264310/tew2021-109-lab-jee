@@ -32,22 +32,43 @@
      var alumnos=AlumnosServicesRs.getAlumnos();
       // Obtener el elemento HTML donde ir dejando el resultado
       // del servicio
-     div = document.getElementById("contenido")
-     div.innerHTML = "";
+     divN = document.getElementById("Nombre")
+     divA = document.getElementById("Apellidos")
+     divE = document.getElementById("Email")
+     divID = document.getElementById("ID")
+     divN.innerHTML = "";
+     divA.innerHTML = "";
+     divE.innerHTML = "";
+     divID.innerHTML = "";
      for (i in alumnos) {
-       div.innerHTML += alumnos[i]["nombre"] + alumnos[i]["apellidos"] + alumnos[i]["email"] + alumnos[i]["iduser"]+"</br>";
+       divN.innerHTML += alumnos[i]["nombre"]+"</br>";
+       divA.innerHTML += alumnos[i]["apellidos"]+"</br>";
+       divE.innerHTML += alumnos[i]["email"]+"</br>";
+       divID.innerHTML += alumnos[i]["iduser"]+"</br>";
       }
     }
   </script>
 </head>
 
 <body onload="solicitarDatosAlumnos()">
- <div class="container">
+ <div class="container-fluid">
 	<div class="page-header" >Listado de alumnos</div>
-	<br/>
-	<div id="contenido" style="height:90%;top:30px">
-	  Resultado del servicio  REST...
+	<div class="row">
+		<div class="col-sm-3">Nombre</div>
+		<div class="col-sm-3">Apellidos</div>
+		<div class="col-sm-3">Email</div>
+		<div class="col-sm-3">Id User</div>
 	</div>
+	<br />
+	<div class="row">
+		<div class="col-sm-3" id="Nombre"></div>
+		<div class="col-sm-3" id="Apellidos"></div>
+		<div class="col-sm-3" id="Email"></div>
+		<div class="col-sm-3" id="ID"></div>
+	</div>
+	<!--<div id="contenido" style="height:90%;top:30px">
+	  Resultado del servicio  REST...
+	</div>-->
  </div>
 </body>
 </html>
