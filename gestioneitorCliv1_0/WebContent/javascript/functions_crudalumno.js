@@ -177,3 +177,15 @@ function Controller(varmodel, varview) {
 
 	}
 }; 
+
+$(function() {
+	// Creamos el modelo con los datos y la conexión al servicio web.
+	var model = new Model();
+	// Creamos la vista que incluye acceso al modelo.
+	var view = new View();
+	// Creamos el controlador
+	var control = new Controller(model, view);
+	
+	// Iniciamos la aplicación
+	control.init();
+}); 
