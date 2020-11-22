@@ -86,6 +86,14 @@ function View(){
 		};
 		return alumno;
 	} // PENDIENTE DE IMPLEMENTAR
-	this.loadAlumnoInForm = function (alumno) {} // PENDIENTE DE IMPLEMENTAR
+	this.loadAlumnoInForm = function (alumno) {
+		// Pintamos los datos alumnos sobre el formularios de alta/edición
+		$("#id").val(alumno.id);
+		$("#iduser").val(alumno.iduser);
+		$("#nombre").val(alumno.nombre);
+		$("#apellidos").val(alumno.apellidos);
+		$("#email").val(alumno.email);
+		$("#iduser").focus(); // Ponemos el foco en el campo Nombre.
+	} // PENDIENTE DE IMPLEMENTAR
 	this.getIdAlumno = function(celda) {} // PENDIENTE DE IMPLEMENTAR
 }; 
